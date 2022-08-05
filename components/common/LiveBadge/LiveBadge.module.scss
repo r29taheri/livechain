@@ -1,0 +1,15 @@
+.recorder {
+  transform: scale(1);
+  animation: scaleAnim 1500ms linear infinite;
+}
+
+@keyframes scaleAnim {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}

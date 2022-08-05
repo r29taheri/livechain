@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+type Stream {
+  id  String
+  key String
+}
+
+type StreamHistory {
+  id String @default(cuid())
+  createdAt DateTime @default(now())
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String?
+  username  String?  @unique
+  email     String?  @unique
+  address   String   @unique
+  stream    Stream?
+  streams_history   StreamHistory[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
