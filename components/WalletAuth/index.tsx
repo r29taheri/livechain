@@ -1,9 +1,15 @@
+import { useEffect, useState } from 'react';
 import { useAccount } from 'wagmi';
 
 import { ConnectWallet, DisconnectWallet } from '..';
 
 export const WalletAuth = () => {
   const { isConnected } = useAccount();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  return isConnected ? <DisconnectWallet /> : <ConnectWallet />;
+  useEffect(() => {
+    setIsLoggedIn(isConnected);
+  }, [isConnected]);
+
+  return isLoggedIn ? <DisconnectWallet /> : <ConnectWallet />;
 };
