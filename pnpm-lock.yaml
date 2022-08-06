@@ -2,7 +2,8 @@ lockfileVersion: 5.4
 
 specifiers:
   '@babel/core': ^7.18.10
-  '@chakra-ui/react': ^2.2.4
+  '@chakra-ui/react': ^2.2.6
+  '@chakra-ui/styled-system': ^2.2.5
   '@emotion/react': ^11
   '@emotion/styled': ^11
   '@hookform/resolvers': ^2.9.7
@@ -13,7 +14,6 @@ specifiers:
   '@types/node': 18.6.3
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
-  '@xstate/react': ^3.0.0
   axios: ^0.27.2
   cookies: ^0.8.0
   eslint: 8.21.0
@@ -33,22 +33,19 @@ specifiers:
   react-icons: ^4.4.0
   react-player: ^2.10.1
   sass: ^1.54.3
-  swr: ^1.3.0
   typescript: 4.7.4
   wagmi: ^0.6.0
-  xstate: ^4.32.1
   yup: ^0.32.11
 
 dependencies:
   '@babel/core': 7.18.10
-  '@chakra-ui/react': 2.2.6_bdbj5fmnflsx5dx2nipfb2qkou
+  '@chakra-ui/react': 2.2.6_glam2zx7mwwm7mczajv3dtlarm
+  '@chakra-ui/styled-system': 2.2.5
   '@emotion/react': 11.10.0_dekd3qhq25os2zmp2sxj6oaoou
   '@emotion/styled': 11.10.0_cvyjuqpqzsw2jroi6znapo3uiq
   '@hookform/resolvers': 2.9.7_react-hook-form@7.34.0
   '@livepeer/webrtmp-sdk': 0.2.3
   '@prisma/client': 4.1.1_prisma@4.1.1
-  '@types/cookies': 0.7.7
-  '@xstate/react': 3.0.1_uiszogwilegpdz64zmnrmehgba
   axios: 0.27.2
   cookies: 0.8.0
   ethers: 5.6.9
@@ -64,12 +61,11 @@ dependencies:
   react-icons: 4.4.0_react@18.2.0
   react-player: 2.10.1_react@18.2.0
   sass: 1.54.3
-  swr: 1.3.0_react@18.2.0
-  wagmi: 0.6.0_v53yskzlb7auon6fdtjnpmvxqu
-  xstate: 4.33.0
+  wagmi: 0.6.1_v53yskzlb7auon6fdtjnpmvxqu
   yup: 0.32.11
 
 devDependencies:
+  '@types/cookies': 0.7.7
   '@types/lodash': 4.14.182
   '@types/node': 18.6.3
   '@types/react': 18.0.15
@@ -628,7 +624,7 @@ packages:
     dependencies:
       '@chakra-ui/react-env': 2.0.6_react@18.2.0
       '@chakra-ui/system': 2.2.4_rq3l25qc4qpq3j4w6o4x7hatzy
-      '@chakra-ui/theme': 2.1.5
+      '@chakra-ui/theme': 2.1.5_r56oxewql32lblvauqybun6z4e
       '@chakra-ui/utils': 2.0.6
       react: 18.2.0
     dev: false
@@ -747,7 +743,7 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@chakra-ui/progress/2.0.7_2ceav2ty4h5gkpnoesr62job6y:
+  /@chakra-ui/progress/2.0.7_4aa7s7iaru26sz64kwmhm5q66m:
     resolution: {integrity: sha512-1r05btz7gU93D2PDZeKjlEwE+IvanFl0+42dDeXkha4OIc9dgMxlnfIxgqfr4dnWl9+oYHS+wWDcObjxDPmPwA==}
     peerDependencies:
       '@chakra-ui/system': '>=2.0.0'
@@ -755,7 +751,7 @@ packages:
     dependencies:
       '@chakra-ui/react-utils': 2.0.3_react@18.2.0
       '@chakra-ui/system': 2.2.4_rq3l25qc4qpq3j4w6o4x7hatzy
-      '@chakra-ui/theme-tools': 2.0.7
+      '@chakra-ui/theme-tools': 2.0.7_r56oxewql32lblvauqybun6z4e
       '@chakra-ui/utils': 2.0.6
       react: 18.2.0
     transitivePeerDependencies:
@@ -815,7 +811,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@chakra-ui/react/2.2.6_bdbj5fmnflsx5dx2nipfb2qkou:
+  /@chakra-ui/react/2.2.6_glam2zx7mwwm7mczajv3dtlarm:
     resolution: {integrity: sha512-WKzSqc6VTOKEPBabZnGzBf1SYcO/b5/an0+LT4icuPddlraXHvgYM5SmwYI0z5N/jNqbspWlyDda6zoLW6JVxA==}
     peerDependencies:
       '@emotion/react': ^11.0.0
@@ -850,7 +846,7 @@ packages:
       '@chakra-ui/popover': 2.0.6_ivnftbmhnz66yfw5oqasmzla7m
       '@chakra-ui/popper': 3.0.4_react@18.2.0
       '@chakra-ui/portal': 2.0.6_biqbaboplfbrettd7655fr4n2y
-      '@chakra-ui/progress': 2.0.7_2ceav2ty4h5gkpnoesr62job6y
+      '@chakra-ui/progress': 2.0.7_4aa7s7iaru26sz64kwmhm5q66m
       '@chakra-ui/provider': 2.0.11_tyh4ta3a3jg5wknldy4g2a7uiy
       '@chakra-ui/radio': 2.0.7_2ceav2ty4h5gkpnoesr62job6y
       '@chakra-ui/react-env': 2.0.6_react@18.2.0
@@ -865,8 +861,8 @@ packages:
       '@chakra-ui/tabs': 2.0.8_2ceav2ty4h5gkpnoesr62job6y
       '@chakra-ui/tag': 2.0.6_2ceav2ty4h5gkpnoesr62job6y
       '@chakra-ui/textarea': 2.0.7_2ceav2ty4h5gkpnoesr62job6y
-      '@chakra-ui/theme': 2.1.5
-      '@chakra-ui/toast': 3.0.4_qugvnsogxzyp7ax6pcp3jfjtfe
+      '@chakra-ui/theme': 2.1.5_r56oxewql32lblvauqybun6z4e
+      '@chakra-ui/toast': 3.0.4_xliialmw7hyd4e553xoifo5uzi
       '@chakra-ui/tooltip': 2.0.7_qugvnsogxzyp7ax6pcp3jfjtfe
       '@chakra-ui/transition': 2.0.6_s2wzvri4ojre7yvvetwrt2nhzi
       '@chakra-ui/utils': 2.0.6
@@ -904,7 +900,7 @@ packages:
       '@chakra-ui/hooks': 2.0.6_react@18.2.0
       '@chakra-ui/media-query': 3.2.2_kkuqvtmz3jcfsircm63ulfo47a
       '@chakra-ui/system': 2.2.4_rq3l25qc4qpq3j4w6o4x7hatzy
-      '@chakra-ui/theme': 2.1.5
+      '@chakra-ui/theme': 2.1.5_r56oxewql32lblvauqybun6z4e
       '@chakra-ui/utils': 2.0.6
       '@emotion/react': 11.10.0_dekd3qhq25os2zmp2sxj6oaoou
       '@emotion/styled': 11.10.0_cvyjuqpqzsw2jroi6znapo3uiq
@@ -1040,27 +1036,29 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@chakra-ui/theme-tools/2.0.7:
+  /@chakra-ui/theme-tools/2.0.7_r56oxewql32lblvauqybun6z4e:
     resolution: {integrity: sha512-8brW2F/LbkSTYpCUAs49RnVw65Exbs+bDo3Kv/Q7TBrUO+peNPtwSdzZlK/NwSwk9mx1W19l4VEtPkSl86LFjg==}
     peerDependencies:
       '@chakra-ui/styled-system': '>=2.0.0'
     dependencies:
       '@chakra-ui/anatomy': 2.0.3
+      '@chakra-ui/styled-system': 2.2.5
       '@chakra-ui/utils': 2.0.6
       '@ctrl/tinycolor': 3.4.1
     dev: false
 
-  /@chakra-ui/theme/2.1.5:
+  /@chakra-ui/theme/2.1.5_r56oxewql32lblvauqybun6z4e:
     resolution: {integrity: sha512-wUeXQLUrEgHuOLQi13r5ZP5Z348yVdIYfe7Ky7xXJ572pXc1ahNvJIJsTeDYmLrsRS2Knrv6DftCIYLWFiz4mw==}
     peerDependencies:
       '@chakra-ui/styled-system': '>=2.0.0'
     dependencies:
       '@chakra-ui/anatomy': 2.0.3
-      '@chakra-ui/theme-tools': 2.0.7
+      '@chakra-ui/styled-system': 2.2.5
+      '@chakra-ui/theme-tools': 2.0.7_r56oxewql32lblvauqybun6z4e
       '@chakra-ui/utils': 2.0.6
     dev: false
 
-  /@chakra-ui/toast/3.0.4_qugvnsogxzyp7ax6pcp3jfjtfe:
+  /@chakra-ui/toast/3.0.4_xliialmw7hyd4e553xoifo5uzi:
     resolution: {integrity: sha512-q3h8mbG+4K3BIXd6I5UxWJCVhqjLr8lFJCc6rTtUB1UwW3JeYiKnSnG9iuKiqOlC3S9aAUnTaFpwJcWKKUVWug==}
     peerDependencies:
       '@chakra-ui/system': 2.2.4
@@ -1074,7 +1072,7 @@ packages:
       '@chakra-ui/portal': 2.0.6_biqbaboplfbrettd7655fr4n2y
       '@chakra-ui/react-utils': 2.0.3_react@18.2.0
       '@chakra-ui/system': 2.2.4_rq3l25qc4qpq3j4w6o4x7hatzy
-      '@chakra-ui/theme': 2.1.5
+      '@chakra-ui/theme': 2.1.5_r56oxewql32lblvauqybun6z4e
       '@chakra-ui/transition': 2.0.6_s2wzvri4ojre7yvvetwrt2nhzi
       '@chakra-ui/utils': 2.0.6
       framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
@@ -1975,13 +1973,13 @@ packages:
     dependencies:
       '@types/connect': 3.4.35
       '@types/node': 18.6.3
-    dev: false
+    dev: true
 
   /@types/connect/3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
       '@types/node': 18.6.3
-    dev: false
+    dev: true
 
   /@types/cookies/0.7.7:
     resolution: {integrity: sha512-h7BcvPUogWbKCzBR2lY4oqaZbO3jXZksexYJVFvkrFeLgbZjQkU4x8pRq6eg2MHXQhY0McQdqmmsxRWlVAHooA==}
@@ -1990,7 +1988,7 @@ packages:
       '@types/express': 4.17.13
       '@types/keygrip': 1.0.2
       '@types/node': 18.6.3
-    dev: false
+    dev: true
 
   /@types/express-serve-static-core/4.17.30:
     resolution: {integrity: sha512-gstzbTWro2/nFed1WXtf+TtrpwxH7Ggs4RLYTLbeVgIkUQOI3WG/JKjgeOU1zXDvezllupjrf8OPIdvTbIaVOQ==}
@@ -1998,7 +1996,7 @@ packages:
       '@types/node': 18.6.3
       '@types/qs': 6.9.7
       '@types/range-parser': 1.2.4
-    dev: false
+    dev: true
 
   /@types/express/4.17.13:
     resolution: {integrity: sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA==}
@@ -2007,7 +2005,7 @@ packages:
       '@types/express-serve-static-core': 4.17.30
       '@types/qs': 6.9.7
       '@types/serve-static': 1.15.0
-    dev: false
+    dev: true
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
@@ -2015,7 +2013,7 @@ packages:
 
   /@types/keygrip/1.0.2:
     resolution: {integrity: sha512-GJhpTepz2udxGexqos8wgaBx4I/zWIDPh/KOGEwAqtuGDkOUJu5eFvwmdBX4AmB8Odsr+9pHCQqiAqDL/yKMKw==}
-    dev: false
+    dev: true
 
   /@types/lodash.mergewith/4.6.6:
     resolution: {integrity: sha512-RY/8IaVENjG19rxTZu9Nukqh0W2UrYgmBj5sdns4hWRZaV8PqR7wIKHFKzvOTjo4zVRV7sVI+yFhAJql12Kfqg==}
@@ -2028,7 +2026,7 @@ packages:
 
   /@types/mime/3.0.1:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
-    dev: false
+    dev: true
 
   /@types/node/18.6.3:
     resolution: {integrity: sha512-6qKpDtoaYLM+5+AFChLhHermMQxc3TOEFIDzrZLPRGHPrLEwqFkkT5Kx3ju05g6X7uDPazz3jHbKPX0KzCjntg==}
@@ -2048,11 +2046,11 @@ packages:
 
   /@types/qs/6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
-    dev: false
+    dev: true
 
   /@types/range-parser/1.2.4:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
-    dev: false
+    dev: true
 
   /@types/react-dom/18.0.6:
     resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
@@ -2081,7 +2079,7 @@ packages:
     dependencies:
       '@types/mime': 3.0.1
       '@types/node': 18.6.3
-    dev: false
+    dev: true
 
   /@types/use-sync-external-store/0.0.3:
     resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==}
@@ -2149,8 +2147,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@wagmi/core/0.5.0_6ihxxpftkzewcisdp7osyx524i:
-    resolution: {integrity: sha512-bh4cI7WaBDtEM8E7KPCLnK5PfmBPg5iIUydTw5DTX2yo6BiRhcFIflRn/Bg9IJCFq3SGhW6Zmpu+jHHeH9ZELQ==}
+  /@wagmi/core/0.5.1_6ihxxpftkzewcisdp7osyx524i:
+    resolution: {integrity: sha512-EgFppUNDLVtjThSoGqr3yzY/jq5qZUPhCgfubcPGET8Xd1OMoag/Z85e2krcxkVZ+ExWPSUGCFLau4odd2PDFQ==}
     peerDependencies:
       '@coinbase/wallet-sdk': '>=3.3.0'
       '@walletconnect/ethereum-provider': '>=1.7.5'
@@ -2358,26 +2356,6 @@ packages:
     resolution: {integrity: sha512-9eFvmJxIKCC3YWOL97SgRkKhlyGXkrHwamfechmqszbypFspaSk+t2jQXAEU7YClHF6Qjw5eYOmy1//zFi9/GA==}
     dependencies:
       '@walletconnect/window-getters': 1.0.0
-    dev: false
-
-  /@xstate/react/3.0.1_uiszogwilegpdz64zmnrmehgba:
-    resolution: {integrity: sha512-/tq/gg92P9ke8J+yDNDBv5/PAxBvXJf2cYyGDByzgtl5wKaxKxzDT82Gj3eWlCJXkrBg4J5/V47//gRJuVH2fA==}
-    peerDependencies:
-      '@xstate/fsm': ^2.0.0
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      xstate: ^4.33.0
-    peerDependenciesMeta:
-      '@xstate/fsm':
-        optional: true
-      xstate:
-        optional: true
-    dependencies:
-      react: 18.2.0
-      use-isomorphic-layout-effect: 1.1.2_3hx2ussxxho4jajbwrd6gq34qe
-      use-sync-external-store: 1.2.0_react@18.2.0
-      xstate: 4.33.0
-    transitivePeerDependencies:
-      - '@types/react'
     dev: false
 
   /@zag-js/focus-visible/0.1.0:
@@ -3126,7 +3104,7 @@ packages:
       is-weakref: 1.0.2
       object-inspect: 1.12.2
       object-keys: 1.1.1
-      object.assign: 4.1.2
+      object.assign: 4.1.3
       regexp.prototype.flags: 1.4.3
       string.prototype.trimend: 1.0.5
       string.prototype.trimstart: 1.0.5
@@ -4226,7 +4204,7 @@ packages:
     engines: {node: '>=4.0'}
     dependencies:
       array-includes: 3.1.5
-      object.assign: 4.1.2
+      object.assign: 4.1.3
     dev: true
 
   /keccak/3.0.2:
@@ -4515,8 +4493,8 @@ packages:
     resolution: {integrity: sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==}
     engines: {node: '>= 0.4'}
 
-  /object.assign/4.1.2:
-    resolution: {integrity: sha512-ixT2L5THXsApyiUPYKmW+2EHpXXe5Ii3M+f4e+aJFAHao5amFRW6J0OO6c/LU8Be47utCx2GL89hxGB6XSmKuQ==}
+  /object.assign/4.1.3:
+    resolution: {integrity: sha512-ZFJnX3zltyjcYJL0RoCJuzb+11zWGyaDbjgxZbdV7rFEcHQuYxrZqhow67aA7xpes6LhojyFDaBKAFfogQrikA==}
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
@@ -5339,14 +5317,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /swr/1.3.0_react@18.2.0:
-    resolution: {integrity: sha512-dkghQrOl2ORX9HYrMDtPa7LTVHJjCTeZoB1dqTbnnEDlSvN8JEKpYIYurDfvbQFUUS8Cg8PceFVZNkW0KNNYPw==}
-    peerDependencies:
-      react: ^16.11.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
   /text-table/0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
@@ -5484,19 +5454,6 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /use-isomorphic-layout-effect/1.1.2_3hx2ussxxho4jajbwrd6gq34qe:
-    resolution: {integrity: sha512-49L8yCO3iGT/ZF9QttjwLF/ZD9Iwto5LnH5LmEdk/6cFmXddqi2ulF0edxTwjj+7mqvpVVGQWvbXZdn32wRSHA==}
-    peerDependencies:
-      '@types/react': '*'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-    dependencies:
-      '@types/react': 18.0.15
-      react: 18.2.0
-    dev: false
-
   /use-sidecar/1.1.2_3hx2ussxxho4jajbwrd6gq34qe:
     resolution: {integrity: sha512-epTbsLuzZ7lPClpz2TyryBfztm7m+28DlEv2ZCQ3MDr5ssiwyOwGH/e5F9CkfWjJ1t4clvI58yF822/GUkjjhw==}
     engines: {node: '>=10'}
@@ -5540,14 +5497,14 @@ packages:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
     dev: true
 
-  /wagmi/0.6.0_v53yskzlb7auon6fdtjnpmvxqu:
-    resolution: {integrity: sha512-Jyj22eQNoNcs9DoLDhD+foF5skEc7XPAZjqZ7GK+rVzxWVlA6Vx+qrcAALNGnxayE6H+CYVKWGtTK8PPN/WHOw==}
+  /wagmi/0.6.1_v53yskzlb7auon6fdtjnpmvxqu:
+    resolution: {integrity: sha512-QS/QDlRz6vVt8ZcKqaR7OGawQcN6mC/qCEhmO1qAmXx3LTkNyszBDJOdvn6AuGAljFowqb6aqD87RcKfjyEhyQ==}
     peerDependencies:
       ethers: '>=5.5.1'
       react: '>=17.0.0'
     dependencies:
       '@coinbase/wallet-sdk': 3.4.0_@babel+core@7.18.10
-      '@wagmi/core': 0.5.0_6ihxxpftkzewcisdp7osyx524i
+      '@wagmi/core': 0.5.1_6ihxxpftkzewcisdp7osyx524i
       '@walletconnect/ethereum-provider': 1.8.0
       ethers: 5.6.9
       react: 18.2.0
@@ -5663,10 +5620,6 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-    dev: false
-
-  /xstate/4.33.0:
-    resolution: {integrity: sha512-+oari/Nt2cBq79mklnGA9Tsb6kv7ln+cIMfrH6n642XpTEG6sMRHg4GkooAbGbcslG3Ff9uH2jmGRP+1uoZ/Xw==}
     dev: false
 
   /xtend/4.0.2:

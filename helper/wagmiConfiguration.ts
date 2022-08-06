@@ -6,7 +6,7 @@ import { InjectedConnector } from 'wagmi/connectors/injected';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 
-const { chains, provider, webSocketProvider } = configureChains(
+const { chains, provider } = configureChains(
   [chain.mainnet],
   [infuraProvider({ apiKey: process.env.INFURA_API_KEY }), publicProvider()]
 );
@@ -41,5 +41,4 @@ export const client = createClient({
     }),
   ],
   provider,
-  webSocketProvider,
 });
