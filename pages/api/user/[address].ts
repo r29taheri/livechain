@@ -30,18 +30,8 @@ export default async function handler(
         res.status(400).json({ success: false, message: error });
       }
       break;
-    case 'POST':
+    case 'PATCH':
       try {
-        const exists = await prisma.user.findUnique({
-          where: { address: address as string },
-        });
-
-        if (exists && exists.address !== address) {
-          return res.status(400).json({
-            message: 'User already exists',
-          });
-        }
-
         const user = await prisma.user.update({
           where: { address: address as string },
           data: body,

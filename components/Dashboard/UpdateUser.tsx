@@ -4,6 +4,7 @@ import { Button } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useCheckExist } from '@hooks/useCheckExist';
 import { User } from '@prisma/client';
 import { Input } from '..';
 
@@ -23,6 +24,23 @@ const schema = yup
   .required();
 
 export const UpdateUser = ({ user, isLoading, handleUpdateUser }: Props) => {
+  const {
+    isInvalid: isInvalidUsername,
+    isChecking: isCheckingUsername,
+    handleCheck: handleCheckUsername,
+  } = useCheckExist({
+    field: 'username',
+    address: user.address,
+  });
+  const {
+    isInvalid: isInvalidEmail,
+    isChecking: isCheckingEmail,
+    handleCheck: handleCheckEmail,
+  } = useCheckExist({
+    field: 'email',
+    address: user.address,
+  });
+
   const {
     register,
     handleSubmit,
@@ -45,14 +63,24 @@ export const UpdateUser = ({ user, isLoading, handleUpdateUser }: Props) => {
         label="Username"
         register={register}
         defaultValue={user.username}
-        isInvalid={!!errors.Username}
+        isLoading={isCheckingUsername}
+        isDisabled={isCheckingUsername}
+        isInvalid={!!errors.Username || isInvalidUsername}
+        onBlur={(e: React.FormEvent<HTMLInputElement>) =>
+          handleCheckUsername(e.currentTarget.value)
+        }
       />
       <Input
         name="email"
         label="Email"
         register={register}
         defaultValue={user.email}
-        isInvalid={!!errors.email}
+        isLoading={isCheckingEmail}
+        isDisabled={isCheckingEmail}
+        isInvalid={!!errors.email || isInvalidEmail}
+        onBlur={(e: React.FormEvent<HTMLInputElement>) =>
+          handleCheckEmail(e.currentTarget.value)
+        }
       />
 
       <Button
@@ -60,6 +88,7 @@ export const UpdateUser = ({ user, isLoading, handleUpdateUser }: Props) => {
         variant="outline"
         colorScheme="green"
         isLoading={isLoading}
+        isDisabled={isInvalidEmail || isInvalidUsername}
       >
         Update
       </Button>
