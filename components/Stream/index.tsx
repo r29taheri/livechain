@@ -1,5 +1,6 @@
 import { get } from 'lodash';
 import ReactPlayer from 'react-player';
+import { isIOS } from 'react-device-detect';
 import { Box, Container } from '@chakra-ui/react';
 
 import { Card, LiveBadge } from '@components/common';
@@ -21,16 +22,21 @@ export const Stream = ({ data, refetch }: Props) => (
           {data.isActive && <LiveBadge />}
           <ReactPlayer
             playing
-            config={{
-              file: {
-                forceHLS: true,
-                hlsOptions: {
-                  appendErrorMaxRetry: 100,
-                  manifestLoadingMaxRetry: 100,
-                },
-              },
-            }}
+            config={
+              !isIOS
+                ? {
+                    file: {
+                      forceHLS: true,
+                      hlsOptions: {
+                        appendErrorMaxRetry: 100,
+                        manifestLoadingMaxRetry: 100,
+                      },
+                    },
+                  }
+                : {}
+            }
             controls
+            playsinline
             width="100%"
             height="100%"
             url={`https://livepeercdn.com/hls/${get(

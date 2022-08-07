@@ -30,7 +30,7 @@ export const UpdateUser = ({ user, isLoading, handleUpdateUser }: Props) => {
     handleCheck: handleCheckUsername,
   } = useCheckExist({
     field: 'username',
-    address: user.address,
+    address: user.address!,
   });
   const {
     isInvalid: isInvalidEmail,
@@ -38,7 +38,7 @@ export const UpdateUser = ({ user, isLoading, handleUpdateUser }: Props) => {
     handleCheck: handleCheckEmail,
   } = useCheckExist({
     field: 'email',
-    address: user.address,
+    address: user.address!,
   });
 
   const {
