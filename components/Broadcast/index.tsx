@@ -20,6 +20,7 @@ export const Broadcast = ({ user }: Props) => {
           {isLive && <LiveBadge />}
           <ReactPlayer
             playing
+            playsinline
             width="100%"
             height="100%"
             controls={false}
