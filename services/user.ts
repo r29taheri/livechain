@@ -11,6 +11,9 @@ const user = {
   check(params: { field: string; value: string; address: string }) {
     return ApiClient.post('/user/check', params);
   },
+  follow(params: { followerId: string; followingId: string }) {
+    return ApiClient.patch('/user/follow', params);
+  },
 };
 
 export default user;
