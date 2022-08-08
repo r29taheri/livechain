@@ -1,12 +1,12 @@
 import {
-  Avatar,
-  AvatarBadge,
   Box,
-  Button,
-  Container,
-  Divider,
   Flex,
   Text,
+  Avatar,
+  Button,
+  Divider,
+  Container,
+  AvatarBadge,
 } from '@chakra-ui/react';
 import { BiUserPlus, BiUserMinus } from 'react-icons/bi';
 

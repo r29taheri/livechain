@@ -20,27 +20,18 @@ type StreamHistory {
   createdAt DateTime @default(now())
 }
 
-// model UserFollows {
-//   follower    User @relation("follower", fields: [followerId], references: [id])
-//   followerId  String
-//   following   User @relation("following", fields: [followingId], references: [id])
-//   followingId String
-
-//   @@id([followerId, followingId])
-// }
-
 model User {
-  id              String          @id @default(auto()) @map("_id") @db.ObjectId
-  name            String?
-  username        String?         @unique
-  email           String?         @unique
-  address         String          @unique
-  stream          Stream?
+  id             String          @id @default(auto()) @map("_id") @db.ObjectId
+  name           String?
+  username       String?         @unique
+  email          String?         @unique
+  address        String          @unique
+  stream         Stream?
   streamsHistory StreamHistory[]
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
-  followedBy      User[]          @relation("UserFollows", fields: [followedByIDs], references: [id])
-  followedByIDs   String[]        @db.ObjectId
-  following       User[]          @relation("UserFollows", fields: [followingIDs], references: [id])
-  followingIDs    String[]        @db.ObjectId
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  followedBy     User[]          @relation("UserFollows", fields: [followedByIDs], references: [id])
+  followedByIDs  String[]        @db.ObjectId
+  following      User[]          @relation("UserFollows", fields: [followingIDs], references: [id])
+  followingIDs   String[]        @db.ObjectId
 }

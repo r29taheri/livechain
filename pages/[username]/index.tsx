@@ -48,7 +48,7 @@ const Livestream = ({ user, currentUser }: Props) => {
       });
   }, [user]);
 
-  const handleFollowUser = useCallback(() => {
+  const handleFollowUser = () => {
     if (!currentUserData?.id) return;
     setIsFollowing(true);
     userApi
@@ -64,7 +64,7 @@ const Livestream = ({ user, currentUser }: Props) => {
       .finally(() => {
         setIsFollowing(false);
       });
-  }, [currentUserData, userData]);
+  };
 
   useEffect(() => {
     getStreamData();
