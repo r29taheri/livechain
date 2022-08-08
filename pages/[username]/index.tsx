@@ -3,9 +3,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { get } from 'lodash';
 import type { GetServerSideProps } from 'next';
 
-import { Stream, Spinner } from '@components/index';
+import { Spinner, UserProfile } from '@components/index';
 import { prisma } from '@helper/prisma.server';
-import { streamApi } from '@services/index';
+import { streamApi, userApi } from '@services/index';
 import { User } from '@prisma/client';
 
 interface StreamData {
@@ -15,10 +15,17 @@ interface StreamData {
 
 interface Props {
   user: User;
+  currentUser: User | null;
 }
 
-const Livestream = ({ user }: Props) => {
+const Livestream = ({ user, currentUser }: Props) => {
+  const [userData, setUserData] = useState<User>(user);
+  const [currentUserData, setCurrentUserData] = useState<User | null>(
+    currentUser
+  );
+
   const [isLoading, setIsLoading] = useState(false);
+  const [isFollowing, setIsFollowing] = useState(false);
   const [data, setData] = useState<StreamData>({
     isActive: false,
     playbackId: '',
@@ -41,17 +48,56 @@ const Livestream = ({ user }: Props) => {
       });
   }, [user]);
 
+  const handleFollowUser = useCallback(() => {
+    if (!currentUserData?.id) return;
+    setIsFollowing(true);
+    userApi
+      .follow({ followerId: currentUserData.id, followingId: userData.id })
+      .then((res) => {
+        const data = get(res, 'data');
+        setUserData(data.following);
+        setCurrentUserData(data.follower);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setIsFollowing(false);
+      });
+  }, [currentUserData, userData]);
+
   useEffect(() => {
     getStreamData();
   }, [getStreamData]);
 
+  useEffect(() => {
+    setUserData(user);
+  }, [user]);
+
+  useEffect(() => {
+    setCurrentUserData(currentUser);
+  }, [currentUser]);
+
   if (isLoading) return <Spinner />;
 
-  return <Stream data={data} refetch={getStreamData} />;
+  return (
+    <UserProfile
+      data={data}
+      user={userData}
+      refetch={getStreamData}
+      isFollowing={isFollowing}
+      currentUser={currentUserData}
+      handleFollowUser={handleFollowUser}
+    />
+  );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  params,
+}) => {
   const username = get(params, 'username') as string;
+  const address = get(req, 'cookies.address');
 
   const user = await prisma.user.findUnique({
     where: {
@@ -64,9 +110,23 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       notFound: true,
     };
   }
+  let currentUser: User | null = null;
+  if (address) {
+    if (address === user.address) currentUser = user;
+    else {
+      currentUser = await prisma.user.findUnique({
+        where: {
+          address,
+        },
+      });
+    }
+  }
 
   return {
-    props: { user: JSON.parse(JSON.stringify(user)) },
+    props: {
+      user: JSON.parse(JSON.stringify(user)),
+      currentUser: JSON.parse(JSON.stringify(currentUser)),
+    },
   };
 };
 

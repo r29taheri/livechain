@@ -5,5 +5,6 @@ export * from './Navbar';
 export * from './Broadcast';
 export * from './Dashboard';
 export * from './WalletAuth';
+export * from './UserProfile';
 export * from './ConnectWallet';
 export * from './DisconnectWallet';
