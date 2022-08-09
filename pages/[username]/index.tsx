@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import Head from 'next/head';
 import { get } from 'lodash';
 import type { GetServerSideProps } from 'next';
 
@@ -81,14 +82,19 @@ const Livestream = ({ user, currentUser }: Props) => {
   if (isLoading) return <Spinner />;
 
   return (
-    <UserProfile
-      data={data}
-      user={userData}
-      refetch={getStreamData}
-      isFollowing={isFollowing}
-      currentUser={currentUserData}
-      handleFollowUser={handleFollowUser}
-    />
+    <>
+      <Head>
+        <title>{`${user.username} Profile`}</title>
+      </Head>
+      <UserProfile
+        data={data}
+        user={userData}
+        refetch={getStreamData}
+        isFollowing={isFollowing}
+        currentUser={currentUserData}
+        handleFollowUser={handleFollowUser}
+      />
+    </>
   );
 };
 

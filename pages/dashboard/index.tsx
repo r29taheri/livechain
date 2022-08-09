@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+
+import Head from 'next/head';
 import { useToast } from '@chakra-ui/react';
 import { get, identity, pickBy } from 'lodash';
 import type { GetServerSideProps } from 'next';
@@ -55,6 +57,9 @@ const Dashboard = ({ user }: Props) => {
 
   return (
     <>
+      <Head>
+        <title>Dashboard</title>
+      </Head>
       <DashboardUI
         user={userData}
         isLoading={isLoading}
