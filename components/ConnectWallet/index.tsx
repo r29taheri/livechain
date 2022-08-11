@@ -7,6 +7,7 @@ import {
   Modal,
   Button,
   ListItem,
+  useToast,
   ModalBody,
   ModalHeader,
   ModalContent,
@@ -20,7 +21,12 @@ import { Connector, useAccount, useConnect } from 'wagmi';
 
 import { userApi } from '@services/index';
 
-export const ConnectWallet = () => {
+interface Props {
+  handleLoading: (isLoading: boolean) => void;
+}
+
+export const ConnectWallet = ({ handleLoading }: Props) => {
+  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { error, connectors, connectAsync, pendingConnector } = useConnect();
   const { isConnected, isConnecting } = useAccount();
@@ -28,12 +34,24 @@ export const ConnectWallet = () => {
 
   const handleConnectWallet = useCallback(
     async (connector: Connector) => {
-      const result = await connectAsync({ connector });
-      await userApi.login({ address: result.account });
-
-      onClose();
+      handleLoading(true);
+      try {
+        const result = await connectAsync({ connector });
+        await userApi.login({ address: result.account });
+      } catch (error) {
+        console.error(error);
+        toast({
+          duration: 5000,
+          status: 'error',
+          isClosable: true,
+          title: 'Something went wrong.',
+        });
+      } finally {
+        onClose();
+        handleLoading(false);
+      }
     },
-    [connectAsync, onClose]
+    [connectAsync, handleLoading, onClose, toast]
   );
 
   useEffect(() => {

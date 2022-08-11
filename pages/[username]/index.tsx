@@ -4,9 +4,9 @@ import Head from 'next/head';
 import { get } from 'lodash';
 import type { GetServerSideProps } from 'next';
 
-import { Spinner, UserProfile } from '@components/index';
-import { prisma } from '@helper/prisma.server';
+import { FullscreenSpinner, UserProfile } from '@components/index';
 import { streamApi, userApi } from '@services/index';
+import { prisma } from '@helper/prisma.server';
 import { User } from '@prisma/client';
 
 interface StreamData {
@@ -79,7 +79,7 @@ const Livestream = ({ user, currentUser }: Props) => {
     setCurrentUserData(currentUser);
   }, [currentUser]);
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <FullscreenSpinner />;
 
   return (
     <>
