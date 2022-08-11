@@ -72,6 +72,12 @@ const Dashboard = ({ user }: Props) => {
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const address = get(req, 'cookies.address');
 
+  if (!address) {
+    return {
+      notFound: true,
+    };
+  }
+
   const user = await prisma.user.findUnique({
     where: {
       address,

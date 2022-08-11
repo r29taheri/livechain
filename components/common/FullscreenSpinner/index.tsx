@@ -1,6 +1,6 @@
 import { Center, Spinner as ChakraSpinner } from '@chakra-ui/react';
 
-export const Spinner = () => (
+export const FullscreenSpinner = () => (
   <Center
     top={0}
     left={0}

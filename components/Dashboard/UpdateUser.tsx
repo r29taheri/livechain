@@ -18,7 +18,10 @@ const schema = yup
   .object()
   .shape({
     name: yup.string(),
-    username: yup.string(),
+    username: yup
+      .string()
+      .min(4)
+      .matches(/^[a-zA-Z0-9_]{3,}[a-zA-Z]+[0-9]*$/, 'username is not valid'),
     email: yup.string().email(),
   })
   .required();
