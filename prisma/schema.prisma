@@ -34,4 +34,14 @@ model User {
   followedByIDs  String[]        @db.ObjectId
   following      User[]          @relation("UserFollows", fields: [followingIDs], references: [id])
   followingIDs   String[]        @db.ObjectId
+  media          Media[]
+}
+
+model Media {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  owner       User    @relation(fields: [ownerId], references: [id])
+  ownerId     String  @db.ObjectId
+  url         String
+  title       String
+  description String?
 }

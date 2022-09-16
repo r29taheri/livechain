@@ -20,6 +20,7 @@ export const Dashboard = ({ user, isLoading, handleUpdateUser }: Props) => {
           <TabList>
             <Tab>Live</Tab>
             <Tab>Update</Tab>
+            <Tab>Upload Media</Tab>
           </TabList>
 
           <TabPanels>
