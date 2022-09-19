@@ -1,6 +1,7 @@
 import {
   Box,
   Spinner,
+  Textarea,
   FormLabel,
   FormControl,
   Input as ChakraInput,
@@ -13,6 +14,7 @@ interface Props {
   [key: string]: any;
   isLoading?: boolean;
   isInavlid?: boolean;
+  mode?: 'textarea' | 'normal';
   register: UseFormRegister<FieldValues>;
 }
 
@@ -22,12 +24,22 @@ export const Input = ({
   register,
   isLoading,
   isInavlid,
+  mode = 'normal',
   ...props
 }: Props) => (
   <FormControl isInvalid={isInavlid}>
-    <FormLabel htmlFor="name">{label}:</FormLabel>
+    <FormLabel htmlFor={name}>{label}:</FormLabel>
     <Box pos="relative">
-      <ChakraInput mb="10px" variant="filled" {...register(name)} {...props} />
+      {mode === 'textarea' ? (
+        <Textarea mb="10px" variant="filled" {...register(name)} {...props} />
+      ) : (
+        <ChakraInput
+          mb="10px"
+          variant="filled"
+          {...register(name)}
+          {...props}
+        />
+      )}
       {isLoading && (
         <Spinner size="xs" top="15px" pos="absolute" right="10px" />
       )}

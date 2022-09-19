@@ -1,26 +1,28 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import Bundlr from '@bundlr-network/client';
-import { prisma } from '@helper/prisma.server';
+import { getFileStream } from '@helper/awsS3';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { body, method } = req;
+  const {
+    body,
+    method,
+    query: { key },
+  } = req;
 
   switch (method) {
-    case 'POST':
+    case 'GET':
       try {
-        const media = await prisma.media.create({
-          data: body,
-        });
+        const readStream = getFileStream(key as string);
 
-        res.status(201).json({ media });
+        readStream.pipe(res);
       } catch (error) {
         res.status(400).json({ success: false, message: error });
       }
       break;
+
     default:
       res.status(400).json({ success: false });
       break;

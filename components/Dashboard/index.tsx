@@ -5,6 +5,7 @@ import { StartSession } from './StartSession';
 import { UpdateUser } from './UpdateUser';
 import { User } from '@prisma/client';
 import { Card } from '..';
+import { UploadMedia } from './UploadMedia';
 
 interface Props {
   isLoading: boolean;
@@ -33,6 +34,9 @@ export const Dashboard = ({ user, isLoading, handleUpdateUser }: Props) => {
                 isLoading={isLoading}
                 handleUpdateUser={handleUpdateUser}
               />
+            </TabPanel>
+            <TabPanel>
+              <UploadMedia userId={user.id!} />
             </TabPanel>
           </TabPanels>
         </Tabs>
