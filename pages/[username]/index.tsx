@@ -72,6 +72,7 @@ const Livestream = ({ user, currentUser }: Props) => {
   }, [getStreamData]);
 
   useEffect(() => {
+    console.info('user', user);
     setUserData(user);
   }, [user]);
 
@@ -108,6 +109,9 @@ export const getServerSideProps: GetServerSideProps = async ({
   const user = await prisma.user.findUnique({
     where: {
       username,
+    },
+    include: {
+      media: true,
     },
   });
 

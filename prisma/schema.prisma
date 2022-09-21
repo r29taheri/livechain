@@ -27,6 +27,7 @@ model User {
   email          String?         @unique
   address        String          @unique
   stream         Stream?
+  avatar         String?
   streamsHistory StreamHistory[]
   createdAt      DateTime        @default(now())
   updatedAt      DateTime        @updatedAt
@@ -45,12 +46,14 @@ type MetaData {
 }
 
 model Media {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  owner       User     @relation(fields: [ownerId], references: [id])
-  ownerId     String   @db.ObjectId
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  owner       User      @relation(fields: [ownerId], references: [id])
+  ownerId     String    @db.ObjectId
   key         String
   title       String
   description String?
   type        String
+  thumbnail   String?
   metadata    MetaData?
+  createdAt   DateTime  @default(now())
 }

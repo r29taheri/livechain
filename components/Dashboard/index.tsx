@@ -1,19 +1,27 @@
 import { Container } from '@chakra-ui/react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 
+import { User } from '@prisma/client';
+
 import { StartSession } from './StartSession';
 import { UpdateUser } from './UpdateUser';
-import { User } from '@prisma/client';
-import { Card } from '..';
 import { UploadMedia } from './UploadMedia';
+import { Card } from '..';
+import { FieldValues } from 'react-hook-form';
 
 interface Props {
   isLoading: boolean;
   user: Partial<User>;
+  handleUpload: (data: FieldValues) => void;
   handleUpdateUser: (data: Partial<User>) => void;
 }
 
-export const Dashboard = ({ user, isLoading, handleUpdateUser }: Props) => {
+export const Dashboard = ({
+  user,
+  isLoading,
+  handleUpload,
+  handleUpdateUser,
+}: Props) => {
   return (
     <Container>
       <Card w="100%">
@@ -36,7 +44,10 @@ export const Dashboard = ({ user, isLoading, handleUpdateUser }: Props) => {
               />
             </TabPanel>
             <TabPanel>
-              <UploadMedia userId={user.id!} />
+              <UploadMedia
+                isLoading={isLoading}
+                handleUpload={handleUpload}
+              />
             </TabPanel>
           </TabPanels>
         </Tabs>

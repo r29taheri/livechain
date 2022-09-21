@@ -9,13 +9,17 @@ export default async function handler(
   const {
     body,
     method,
-    query: { key },
+    query: { slug },
   } = req;
 
   switch (method) {
     case 'GET':
       try {
-        const readStream = getFileStream(key as string);
+        if (!slug) {
+          return res.status(400).json({ success: false, message: 'not found' });
+        }
+        const key = slug[0] + '/' + slug[1];
+        const readStream = getFileStream(key);
 
         readStream.pipe(res);
       } catch (error) {

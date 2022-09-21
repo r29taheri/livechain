@@ -13,6 +13,7 @@ import { BiUserPlus, BiUserMinus } from 'react-icons/bi';
 import { ReloadStream } from './Stream/ReloadStream';
 import { Card } from '@components/common';
 import { Stream } from './Stream/index';
+import { UserMedia } from './UserMedia';
 import { User } from '@prisma/client';
 
 interface Props {
@@ -73,6 +74,7 @@ export const UserProfile = ({
         ) : (
           <ReloadStream refetch={refetch} />
         )}
+        <UserMedia media={user.media} />
       </Card>
     </Container>
   );
