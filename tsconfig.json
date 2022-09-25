@@ -6,6 +6,7 @@
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
       "@services/*": ["services/*"],
+      "@constants/*": ["constants/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

@@ -1,6 +1,7 @@
 export * from './common';
 export * from './Header';
 export * from './Navbar';
+export * from './NftCard';
 export * from './Broadcast';
 export * from './Dashboard';
 export * from './WalletAuth';
