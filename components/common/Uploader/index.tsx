@@ -36,7 +36,6 @@ export const Uploader = ({
   };
 
   const onDrop = (acceptedFiles: File[]) => {
-    console.info('acceptedFiles', acceptedFiles);
     handlePreview(acceptedFiles[0]);
     handleFile(acceptedFiles[0]);
   };
@@ -44,12 +43,12 @@ export const Uploader = ({
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     multiple: false,
-    // accept: {
-    //   'image/jpeg': [],
-    //   'image/png': [],
-    //   'image/jpg': [],
-    //   'audio/mpeg3': ['.mp4'],
-    // },
+    accept: {
+      'image/jpeg': [],
+      'image/png': [],
+      'image/jpg': [],
+      'audio/mpeg3': ['.mp4'],
+    },
   });
 
   return (

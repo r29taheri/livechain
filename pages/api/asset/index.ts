@@ -33,9 +33,7 @@ export default async function handler(
       try {
         const files: any = await uploadForm(req);
         const file = files.files.file;
-        console.info('file', file);
         const resFile = await uploadFile(file);
-        console.info('resFile', resFile);
 
         res.status(201).json({ key: resFile.Key });
       } catch (error) {

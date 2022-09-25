@@ -70,14 +70,11 @@ export default async function handler(
         });
 
         const metadataHash = get(result, 'data.IpfsHash');
-        console.info('metadataHash', metadataHash);
 
         const nftData = {
           metadata,
           tokenURI: `https://gateway.pinata.cloud/ipfs/${metadataHash}`,
         };
-
-        console.info('nftData', nftData);
 
         const media = await prisma.media.update({
           where: { id: body.id as string },

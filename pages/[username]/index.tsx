@@ -114,7 +114,6 @@ const Livestream = ({ user, currentUser }: Props) => {
   }, [getStreamData]);
 
   useEffect(() => {
-    console.info('user', user);
     setUserData(user);
   }, [user]);
 

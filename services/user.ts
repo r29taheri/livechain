@@ -5,6 +5,9 @@ const user = {
   login(params: { address: string }) {
     return ApiClient.post('/user', params);
   },
+  logout() {
+    return ApiClient.get('/user/logout');
+  },
   update(params: Partial<User>, address: string) {
     return ApiClient.patch(`/user/${address}`, params);
   },
