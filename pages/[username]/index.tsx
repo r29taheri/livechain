@@ -15,14 +15,18 @@ interface StreamData {
   playbackId: string;
 }
 
+interface UserWithMedia extends User {
+  media: Media[];
+}
+
 interface Props {
-  user: User;
+  user: UserWithMedia;
   currentUser: User | null;
 }
 
 const Livestream = ({ user, currentUser }: Props) => {
   const toast = useToast();
-  const [userData, setUserData] = useState<User>(user);
+  const [userData, setUserData] = useState<UserWithMedia>(user);
   const [currentUserData, setCurrentUserData] = useState<User | null>(
     currentUser
   );

@@ -16,8 +16,12 @@ import { Card } from '@components/common';
 import { Stream } from './Stream/index';
 import { UserMedia } from './UserMedia';
 
+interface UserWithMedia extends User {
+  media: Media[];
+}
+
 interface Props {
-  user: User;
+  user: UserWithMedia;
   currentUser: User | null;
   data: {
     isActive: boolean;
