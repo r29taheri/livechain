@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import Bundlr from '@bundlr-network/client';
 import { prisma } from '@helper/prisma.server';
 
 export default async function handler(

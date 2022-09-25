@@ -11,10 +11,10 @@ import {
 import { BiUserPlus, BiUserMinus } from 'react-icons/bi';
 
 import { ReloadStream } from './Stream/ReloadStream';
+import { Media, User } from '@prisma/client';
 import { Card } from '@components/common';
 import { Stream } from './Stream/index';
 import { UserMedia } from './UserMedia';
-import { User } from '@prisma/client';
 
 interface Props {
   user: User;
@@ -23,17 +23,21 @@ interface Props {
     isActive: boolean;
     playbackId: string;
   };
+  isLoading: boolean;
   refetch: () => void;
   isFollowing: boolean;
   handleFollowUser: () => void;
+  handleCreateNft: (media: Media) => void;
 }
 
 export const UserProfile = ({
   data,
   user,
   refetch,
+  isLoading,
   currentUser,
   isFollowing,
+  handleCreateNft,
   handleFollowUser,
 }: Props) => {
   const isFollowed = currentUser
@@ -74,7 +78,11 @@ export const UserProfile = ({
         ) : (
           <ReloadStream refetch={refetch} />
         )}
-        <UserMedia media={user.media} />
+        <UserMedia
+          media={user.media}
+          isLoading={isLoading}
+          handleCreateNft={handleCreateNft}
+        />
       </Card>
     </Container>
   );

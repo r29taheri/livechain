@@ -1,29 +1,57 @@
 import {
   Box,
-  Button,
+  Text,
   Modal,
+  Button,
+  Divider,
   ModalBody,
   ModalFooter,
   ModalHeader,
   ModalOverlay,
   ModalContent,
   ModalCloseButton,
-  Text,
-  Divider,
+  useToast,
 } from '@chakra-ui/react';
 import { Media } from '@prisma/client';
 import Image from 'next/image';
 
 import { ASSET_PREFIX } from '@constants/index';
 import ReactPlayer from 'react-player';
+import { useRouter } from 'next/router';
 
 interface Props {
   isOpen: boolean;
+  isLoading: boolean;
   media: Media | null;
   onClose: () => void;
+  handleCreateNft: (media: Media) => void;
 }
 
-export const MediaModal = ({ media, isOpen, onClose }: Props) => {
+export const MediaModal = ({
+  media,
+  isOpen,
+  onClose,
+  isLoading,
+  handleCreateNft,
+}: Props) => {
+  const toast = useToast();
+  const router = useRouter();
+
+  const handleNft = (media: Media) => {
+    if (media.type === 'video') {
+      toast({
+        status: 'info',
+        duration: 5000,
+        isClosable: true,
+        title: 'Currently is not available to create video NFT.',
+      });
+    } else if (media.nftData) {
+      router.push(`/nft/${media.id}`);
+    } else {
+      handleCreateNft(media);
+    }
+  };
+
   if (!media) return null;
 
   return (
@@ -62,7 +90,13 @@ export const MediaModal = ({ media, isOpen, onClose }: Props) => {
             <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant="ghost">Make it NFT</Button>
+            <Button
+              variant="ghost"
+              isLoading={isLoading}
+              onClick={() => handleNft(media)}
+            >
+              {media.nftData ? 'Open NFT' : 'Make it NFT'}
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

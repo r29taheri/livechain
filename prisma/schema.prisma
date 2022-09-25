@@ -45,6 +45,11 @@ type MetaData {
   image        String
 }
 
+type nftData {
+  tokenURI String
+  metadata MetaData
+}
+
 model Media {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   owner       User      @relation(fields: [ownerId], references: [id])
@@ -54,6 +59,6 @@ model Media {
   description String?
   type        String
   thumbnail   String?
-  metadata    MetaData?
+  nftData    nftData?
   createdAt   DateTime  @default(now())
 }

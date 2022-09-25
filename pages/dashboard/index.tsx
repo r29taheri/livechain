@@ -59,7 +59,7 @@ const Dashboard = ({ user }: Props) => {
     const formData = new FormData();
     formData.append('file', data.file);
     const type = getFileType(data.file.type);
-    let thumbnailKey: string;
+    let thumbnailKey: string | null = null;
 
     // If type is video then generate a thumbnail and store it
     if (type === 'video') {

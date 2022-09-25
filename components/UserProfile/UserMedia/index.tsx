@@ -8,8 +8,10 @@ import { useState } from 'react';
 
 interface Props {
   media: Media[];
+  isLoading: boolean;
+  handleCreateNft: (media: Media) => void;
 }
-export const UserMedia = ({ media }: Props) => {
+export const UserMedia = ({ media, isLoading, handleCreateNft }: Props) => {
   const [selectedItem, setSelectedItem] = useState<Media | null>(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -23,12 +25,12 @@ export const UserMedia = ({ media }: Props) => {
       <SimpleGrid columns={{ sm: 2, md: 4 }} spacing={10} my="10px">
         {media.map((item) => (
           <Box
-          key={item.id}
-          pos="relative"
-          cursor="pointer"
-          transition="300ms"
-          _hover={{ opacity: 0.7 }}
-          onClick={()=>handleSelectItem(item)}
+            key={item.id}
+            pos="relative"
+            cursor="pointer"
+            transition="300ms"
+            _hover={{ opacity: 0.7 }}
+            onClick={() => handleSelectItem(item)}
           >
             <Image
               width="100%"
@@ -40,7 +42,13 @@ export const UserMedia = ({ media }: Props) => {
           </Box>
         ))}
       </SimpleGrid>
-      <MediaModal media={selectedItem} isOpen={isOpen} onClose={onClose} />
+      <MediaModal
+        isOpen={isOpen}
+        onClose={onClose}
+        media={selectedItem}
+        isLoading={isLoading}
+        handleCreateNft={handleCreateNft}
+      />
     </>
   );
 };
